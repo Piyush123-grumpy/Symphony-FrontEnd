@@ -1,0 +1,52 @@
+.banner3{
+    margin-top: 40px;
+    color: white;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("../../assets/Bass.jpg");
+    width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.banner3-2{
+    background-image: url("../../assets/Acoustic.jpg");
+}
+
+.banner3-3{
+    background-image: url("../../assets/Electric.jpg");
+}
+
+
+.banner3 h2{
+    color: white;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.banner3 h3{
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.bannerContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media (max-width:800px){
+    .banner3{
+        padding: 0 20px;
+    }
+    .banner3{
+        width: 100%;
+    }
+}

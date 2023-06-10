@@ -1,0 +1,38 @@
+p{
+    margin: 0;
+}
+.subheader{
+    display: flex;
+    margin-left: 70px;
+}
+.subheader p{
+    margin-left: 10px;
+}
+
+.topheader{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    padding-top: 5px;
+}
+.topheader p{
+    margin-left: 10px;
+}
+
+.auth_buttons{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.auth_buttons a{
+    text-decoration: none;
+}
+
+@media (max-width:850px){
+    .subheader{
+        display: none;
+    }
+    .login{
+      display: none;
+    }
+}

@@ -1,0 +1,98 @@
+h2{
+
+    font-weight: bold;
+}
+
+.slogan{
+    text-align: center;
+}
+.wrap{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.header-right{
+    position: relative;
+}
+.header-right input{
+    height: 35px;
+    width: 400px;
+    border: solid;
+    border-style: groove;
+
+}
+.header-right button{
+    height: 35px;
+    width: 80px;
+    background-color: black;
+    color: white;
+}
+
+.header-right i{
+    margin-left: 30px;
+}
+
+.badge{
+    position: absolute;
+    top:-10px;
+    padding: 0px 7px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+}
+
+@media (max-width:1035px){
+    .header-right input{
+       width: 280px;
+    
+    }
+
+}
+
+@media  (max-width:992px) {
+    .wrap{
+        display: block;
+    }
+    .header-right{
+        padding-left: 80px;
+    }
+    .slogan{
+        margin: auto;
+        width: 50%;
+        padding-bottom: 15px;
+    }
+}
+
+@media(max-width:768px){
+    .header-right input{
+        width: 300px;
+    }
+    .header-right{
+        padding-left: 30px;
+    }
+}
+
+@media(max-width:600px){
+    .header-right input{
+        width: 260px;
+    }
+
+    .header-right button{
+        width: 50px;
+    }
+    
+    
+}
+@media(max-width:420px){
+    .header-right input{
+        width: 150px;
+    }
+
+    
+    
+}
+@media (max-width:365px){
+    .header-right{
+        padding-left: 0px;
+    }
+}
