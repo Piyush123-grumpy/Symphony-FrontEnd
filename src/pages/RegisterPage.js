@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +16,7 @@ function RegisterPage(props) {
 
     const dispatch = useDispatch()
 
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
     const userRegister = useSelector((state) => state.userRegister)
     const { loading, error, userInfo } = userRegister
@@ -25,7 +25,10 @@ function RegisterPage(props) {
         if (userInfo) {
             navigate('/login')
         }
-    }, [ userInfo])
+        if (error) {
+            console.log(error)
+        }
+    }, [userInfo, error])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -41,16 +44,17 @@ function RegisterPage(props) {
                 <h1 style={{ paddingLeft: 20 }}>Sign Up</h1>
                 {message && <div>{message}</div>}
 
-                {error && <div>{error}</div>}
                 <form onSubmit={submitHandler} className='form'>
                     <label className='label'>First Name</label>
-                    <input onChange={(e)=> setName(e.target.value)} value={name} className='input' type="text" placeholder="" />
+                    <input onChange={(e) => setName(e.target.value)} value={name} className='input' type="text" placeholder="" />
                     <label className='label'>Email</label>
-                    <input onChange={(e)=> setEmail(e.target.value)} value={email} className='input' type="email" placeholder="" />
+                    <input onChange={(e) => setEmail(e.target.value)} value={email} className='input' type="email" placeholder="" />
                     <label className='label'>Password</label>
-                    <input onChange={(e)=> setPassword(e.target.value)} value={password} className='input' type="password" placeholder="" />
+                    <input onChange={(e) => setPassword(e.target.value)} value={password} className='input' type="password" placeholder="" />
+                    {error && <div>{error.password}</div>}
+                    {error && <div>{error.errors}</div>}
                     <label className='label'>Confirm Password</label>
-                    <input onChange={(e)=> setConfirmPassword(e.target.value)} value={confirmPassword} className='input' type="password" placeholder="" />
+                    <input onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} className='input' type="password" placeholder="" />
                     <button className='button' type="submit" value="Register">Register</button>
                     <closeform></closeform></form>
                 <p class="para-2">

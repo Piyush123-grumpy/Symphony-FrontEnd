@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './subtotal.css'
+import { decrypt } from '../../crypto/encrypt-decrypt';
+
 function Subtotal({ cartItems }) {
     return (
         <div className='subtotal container'>
@@ -13,7 +15,7 @@ function Subtotal({ cartItems }) {
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>$ {cartItems.reduce((acc, item) => acc + Number(item.price) * Number(item.qty), 0).toFixed(2)}</strong></td>
+                    <td><strong>$ {cartItems.reduce((acc, item) => acc + Number(decrypt(item.price)) * Number(item.qty), 0).toFixed(2)}</strong></td>
                     <td><Link to="/shipping" class="bg-black hover:bg-black-700 text-white font-bold py-2 px-4 border rounded">
                         Check Out
                     </Link>

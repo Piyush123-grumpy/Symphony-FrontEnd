@@ -33,6 +33,7 @@ function LoginPage(props) {
         <>
             <div className='waraper'>
                 <div class="center">
+                    {error && <div>{error}</div>}
                     <h1>Login</h1>
                     <form method="post" onSubmit={submitHandler}>
                         <div class="txt_field">

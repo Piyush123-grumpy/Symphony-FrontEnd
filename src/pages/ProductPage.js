@@ -4,12 +4,13 @@ import Navigationbar from '../components/homepageComponents/navigationbar';
 import Productimage from '../components/productPageComponents/Productimage';
 import Footer from '../components/homepageComponents/Footer';
 import './productpage.css'
-import ProductDetail from '../components/productPageComponents/productdetail';
+import ProductDetail from '../components/productPageComponents/ProductDetail';
 import { useDispatch } from 'react-redux';
 import { listProductsDetail } from '../actions/productActions';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { addToCart } from '../actions/cartActions'
 
 
 
@@ -27,7 +28,9 @@ function ProductPage() {
     const {loading,error,product}=productDetail
 
     const addToCartHandler=()=>{
-        navigate(`/cart/${id}/?qty=${qty}`)
+        dispatch(addToCart(id, qty))
+        navigate(`/cart`)
+
     }
 
     useEffect(()=>{

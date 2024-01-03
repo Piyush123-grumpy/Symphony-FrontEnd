@@ -9,11 +9,11 @@ import { Link, useParams } from 'react-router-dom'
 import { addToCart } from '../actions/cartActions'
 import { useSearchParams } from "react-router-dom";
 import Footer from '../components/homepageComponents/Footer';
-
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Cartpage({ location }) {
+    const navigate = useNavigate()
     const [searchParams] = useSearchParams();
     const qty = searchParams.get('qty')
     const { id } = useParams();
@@ -21,13 +21,15 @@ function Cartpage({ location }) {
 
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
+    const userLogin = useSelector((state) => state.userLogin)
+    const { loading, error, userInfo } = userLogin
+
 
     useEffect(() => {
-        if (id) {
-            dispatch(addToCart(id, qty))
-
+        if (!userInfo) {
+            navigate('/')
         }
-    }, [dispatch, id, qty])
+    }, [dispatch, id, qty, userInfo])
 
 
     return (
